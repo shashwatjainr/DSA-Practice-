@@ -10,16 +10,14 @@ public class Infix_Evaluation {
         Stack<Integer> num = new Stack<>();
         Stack<Character> st = new Stack<>();
         for(int i = 0; i<exp.length(); i++){
-            int a = 0;
-            int b = 0;
             char element = exp.charAt(i);
             if(Character.isDigit(element)){
                 num.push(Character.getNumericValue(element));
             }
             else if(element == ')'){
                 while(st.peek() != '('){
-                    a=num.pop();
-                    b=num.pop();
+                    int a=num.pop();
+                    int b=num.pop();
                     char optor = st.pop();
                     
                     int oper = operation(a, b, optor);
@@ -29,8 +27,8 @@ public class Infix_Evaluation {
             }
             else if(element == '/' || element == '+' || element == '-' || element == '*'){
                 while(!st.isEmpty() && st.peek() != '(' && precedence(element) <= precedence(st.peek())){
-                    a=num.pop();
-                    b=num.pop();
+                    int a=num.pop();
+                    int b=num.pop();
                     char optor = st.pop();
                     
                     int oper = operation(a, b, optor);
@@ -76,4 +74,5 @@ public class Infix_Evaluation {
         return 0;
     }
 }
+
 
