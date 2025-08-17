@@ -15,7 +15,7 @@ public class Infix_Evaluation {
                 num.push(Character.getNumericValue(element));
             }
             else if(element == ')'){
-                while(st.peek() != '('){
+                while(!st.isEmpty() && st.peek() != '('){
                     int a=num.pop();
                     int b=num.pop();
                     char optor = st.pop();
@@ -23,7 +23,7 @@ public class Infix_Evaluation {
                     int oper = operation(a, b, optor);
                     num.push(oper);
                 }
-                st.pop();
+                if(!st.isEmpty()){st.pop();}
             }
             else if(element == '/' || element == '+' || element == '-' || element == '*'){
                 while(!st.isEmpty() && st.peek() != '(' && precedence(element) <= precedence(st.peek())){
@@ -34,6 +34,7 @@ public class Infix_Evaluation {
                     int oper = operation(a, b, optor);
                     num.push(oper);
                 }
+                if(!st.isEmpty() && st.peek()=='('){st.pop();}
                 st.push(element);
             }else if(element=='('){
                 st.push(element);
@@ -63,7 +64,7 @@ public class Infix_Evaluation {
             else if(optor == '/'){
                 return 2;
             }
-            return 0;
+            else{ return 0;}
     }
 
     public static int operation(int v1, int v2, char optor){
@@ -71,8 +72,7 @@ public class Infix_Evaluation {
         else if(optor == '+'){ return v1+v2;}
         else if(optor == '/'){ return v2/v1;}
         else if(optor == '-'){ return v2-v1;}
-        return 0;
+        else{ return 0; }
     }
 }
-
 
