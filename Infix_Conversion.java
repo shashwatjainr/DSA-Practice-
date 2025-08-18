@@ -14,7 +14,7 @@ public class Infix_Conversion {
         
         for(int i = 0; i<exp.length(); i++){
             char opt = exp.charAt(i);
-            if(opt >= '0' && opt <= '9' || opt >= 'a' && opt <= 'z' || opt >= 'A' && opt <= 'Z'){
+            if((opt >= '0' && opt <= '9') || (opt >= 'a' && opt <= 'z') || (opt >= 'A' && opt <= 'Z')){
                 pre.push(opt + "");
                 pos.push(opt + "");
             }
@@ -38,7 +38,7 @@ public class Infix_Conversion {
                 op.pop();
             }
             else if(opt == '/' || opt == '*' || opt == '+' || opt == '-'){
-                while(!op.isEmpty() && op.peek() != '(' ||!op.isEmpty() && precedence(opt) <= precedence(op.peek())){
+                while(!op.isEmpty() && op.peek() != '(' && precedence(opt) <= precedence(op.peek())){
                     char opr = op.pop();
 
                     String a2 = pre.pop();
@@ -83,3 +83,4 @@ public class Infix_Conversion {
         else{return 0;}
     }
 }
+
