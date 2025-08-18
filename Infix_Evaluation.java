@@ -34,7 +34,7 @@ public class Infix_Evaluation {
                     int oper = operation(a, b, optor);
                     num.push(oper);
                 }
-                if(!st.isEmpty() && st.peek()=='('){st.pop();}
+//                if(!st.isEmpty() && st.peek()=='('){st.pop();} This line is not required because even if '(' comes, there is no need to remove it as removing '(' is the job of ')'.
                 st.push(element);
             }else if(element=='('){
                 st.push(element);
@@ -75,4 +75,5 @@ public class Infix_Evaluation {
         else{ return 0; }
     }
 }
+
 
