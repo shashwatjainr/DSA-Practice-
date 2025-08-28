@@ -11,10 +11,11 @@ public class Zig_Zag {
         if(n == 0){
             return;
         }
-        System.out.println("Pre " + n);
-        pzz(n-1);
-        System.out.println("In " + n);
-        pzz(n-1);
+        System.out.println("Pre " + n); // pre or left part of the tree
+        pzz(n-1); // calling of function part
+        System.out.println("In " + n); // in part of the tree
+        pzz(n-1); 
         System.out.println("Post " + n);
     }
+
 }
