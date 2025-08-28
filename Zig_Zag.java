@@ -14,8 +14,9 @@ public class Zig_Zag {
         System.out.println("Pre " + n); // pre or left part of the tree
         pzz(n-1); // calling of function part
         System.out.println("In " + n); // in part of the tree
-        pzz(n-1); 
-        System.out.println("Post " + n);
+        pzz(n-1); // calling part of the tree
+        System.out.println("Post " + n); // Post or right part of the tree
     }
 
 }
+
